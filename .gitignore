@@ -1,0 +1,8 @@
+natuors.code-workspace
+config.env
+scratch.js
+node_modules/
+.vscode/
+.cache/
+.favorites.json
+

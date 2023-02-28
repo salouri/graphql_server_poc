@@ -8,18 +8,42 @@ type Product {
     description: String
     price: Float
     soldout: Boolean
+    stores: [Store]!
 }
 
+type Store {
+    id: ID
+    name: String
+}
+
+
 type RandomDie {
-  numSides: Int!
-  rollOnce: Int!
-  roll(numRolls: Int!): [Int]
+    numSides: Int!
+    rollOnce: Int!
+    roll(numRolls: Int!): [Int]
 }
 
 type Query {
- getDie(numSides: Int): RandomDie
- getProduct: Product
-    }
-    `);
+    getDie(numSides: Int): RandomDie
+    getProduct(id: ID): Product
+}
+
+input ProductInput {
+    name: String
+    description: String
+    price: Float
+    soldout: Boolean
+    stores: [StoreInput]!
+}
+
+input StoreInput {
+    name: String
+}
+
+type Mutation {
+    createProduct(input: ProductInput): Product
+}
+
+`);
 
 export default schema;

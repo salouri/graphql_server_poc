@@ -24,9 +24,11 @@ enum SoldoutEnum {
 
 type Query {
     getProduct(id: ID): Product
+    getAllProducts: [Product]
 }
 
 input ProductInput {
+    id: ID
     name: String
     description: String
     price: Float
@@ -41,6 +43,8 @@ input StoreInput {
 
 type Mutation {
     createProduct(input: ProductInput): Product
+    updateProduct(input: ProductInput): Product
+    deleteProduct(id: ID!): String
 }
 
 `);

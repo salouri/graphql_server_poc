@@ -1,5 +1,5 @@
 type ProductType = {
-  _id: any;
+  id: any;
   name: string;
   description: string;
   price: number;

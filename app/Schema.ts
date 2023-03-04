@@ -7,24 +7,22 @@ type Product {
     name: String
     description: String
     price: Float
-    soldout: Boolean
-    stores: [Store]!
+    soldout: SoldoutEnum
+    inventory: Int
+    stores: [StoreType]!
 }
 
-type Store {
+type StoreType {
     id: ID
     name: String
 }
 
-
-type RandomDie {
-    numSides: Int!
-    rollOnce: Int!
-    roll(numRolls: Int!): [Int]
+enum SoldoutEnum {
+    SOLDOUT
+    ONSTOCK
 }
 
 type Query {
-    getDie(numSides: Int): RandomDie
     getProduct(id: ID): Product
 }
 
@@ -32,7 +30,8 @@ input ProductInput {
     name: String
     description: String
     price: Float
-    soldout: Boolean
+    soldout: SoldoutEnum
+    inventory: Int
     stores: [StoreInput]!
 }
 

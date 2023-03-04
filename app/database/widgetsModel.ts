@@ -1,7 +1,5 @@
 import mongoose from 'mongoose';
 
-import _ from 'lodash';
-
 const widgetSchema = new mongoose.Schema({
   name: { type: String },
   description: { type: String },

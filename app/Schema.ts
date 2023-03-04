@@ -47,6 +47,10 @@ type Mutation {
     deleteProduct(id: ID!): String
 }
 
+type Subscription {
+    productPriceUpdated(id: ID!): Product
+}
+
 `);
 
 export default schema;
